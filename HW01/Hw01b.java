@@ -15,6 +15,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Hw01b {
 //	Arrays
@@ -48,7 +49,7 @@ public class Hw01b {
 	System.out.println("FirstValue: " + lst.get(0));			 	//  Choose
 	System.out.println("List's length: " + lst.size());				//  Size
 }
-//	Sets
+//	Set
 	public static void set() {
 		Set<Integer> set = new HashSet<>();
 		set.add(5);
@@ -67,7 +68,7 @@ public class Hw01b {
 			System.out.println(i);
 		}
 }
-//  Dictionaries/Maps
+//  Dictionaries/Map
 	public static void map() {
 		Map<String, String> map = new HashMap<>();
 		map.put("hello", "hi");
@@ -115,9 +116,12 @@ public static class Point {
 		System.out.println("Point 1 : ( " + p1.x + " , " + p1.y + " ) ");
 		System.out.println("Point 3: " + p3);
 }
-	//	Programs 
+	//	Programs && Exception 
 	public static int minIndex(int[] numbers) {
 		// Assume numbers.length >= 1
+		// if (numbers.length == 0) {
+		// 	throw new Exception("There are no elements in the array!");
+		// }		
 		int m = numbers[0];
 		int idx = 0;
 		for (int i = 0; i < numbers.length; i++) {
@@ -125,8 +129,9 @@ public static class Point {
 				m = numbers[i];
 				idx = i;
 		}
-	}
-	return idx;	
+	}	
+
+	return m;	
 }
 	public static void point1() {
 		Point p1 = new Point(2,5);
@@ -180,33 +185,76 @@ public class ListExercise {
 		}
 		return num;
 	}
-	public static void main(String[] args) {
-		List <Object> ls = new ArrayList<>();
-		ls.add(2);
-		ls.add(5);
-		ls.add(6);
-		ls.add("s");
-		System.out.println(ls);
-		var la = new ArrayList<Integer>();
-		la.add(2);
-		la.add(4);
-		List <String> word = new ArrayList<>();
-		word.add("acsd");
-		System.out.println(count0ccurrencesOfC(word,'b'));
-		//System.out.println(common(ls,la));
+// 	public static void main(String[] args) {
+// 		List <Object> ls = new ArrayList<>();
+// 		ls.add(2);
+// 		ls.add(5);
+// 		ls.add(6);
+// 		ls.add("s");
+// 		System.out.println(ls);
+// 		var la = new ArrayList<Integer>();
+// 		la.add(2);
+// 		la.add(4);
+// 		List <String> word = new ArrayList<>();
+// 		word.add("acsd");
+// 		System.out.println(count0ccurrencesOfC(word,'b'));
+// 		//System.out.println(common(ls,la));
 		
-	}	
+// 	}	
 }
 
 //	MapExercises
-
-public static void main (String[] args) {
-	//point1();
-	//arrays();
-	//lists();
-	//set();
-	//map();
-	int[] array = {4,2,0,-1,5};
-	System.out.println(minIndex(array));
+//	Created on 23-6-24
+	public class MapExercise {
+	//	letterToNum	
+	public static Map<Character, Integer> letterToNum() {
+		Map<Character, Integer> map1 = new HashMap<>();
+		int number = 1; 
+		for (char letter = 'a';letter <= 'z';letter++) {
+			map1.put(letter,number);
+			number++;
+		}
+		return map1;
+	}
+	//	Squares
+	public static Map<Integer, Integer> squares(List<Integer> nums) {
+		Map <Integer, Integer> map2 = new HashMap<>();
+		for (int num : nums) {
+			if (nums.size() == 0) {
+				return map2;
+			}
+			else {
+				map2.put(num, num * num);
+			}
+		}
+		return map2;
+	}
+	//	countWords
+	public static Map<String, Integer> countWords(List<String> words) {
+		Map <String, Integer> map3 = new HashMap<>();
+		int num = 0;
+		for (String word : words) {
+			int count = map3.getOrDefault(word, 0);
+			map3.put(word, count + 1);
+		}
+		return map3;
+	}
+	public static void main (String[] args) {
+		// var la = new ArrayList<Integer>();
+		// 	la.add(2);
+		// 	la.add(4);
+		List<Integer> Map_nums = List.of(1,2,3,4,5);
+		List<String> Map_chars = List.of("fuck", "fuck", "what");
+		System.out.println(squares(Map_nums));
+		System.out.println(countWords(Map_chars));
+		//point1();
+		//arrays();
+		//lists();
+		//set();
+		//map();
+		// int[] array = {4,2,0,-1,5};
+		// System.out.println(minIndex(array));
+		// System.out.println(letterToNum(nums));
+		}
 	}
 }
