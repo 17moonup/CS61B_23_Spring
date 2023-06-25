@@ -17,7 +17,20 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
 
-public class Hw01b {
+public class Hw0 {
+//	Hw01A	->	starTriangle
+	public static void main(String[] args) {
+		starTriangle();
+	}
+	public static void starTriangle() {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < i + 1; j ++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
 //	Arrays
 	public static void arrays() {
 	int[] zeroedArray = new int[3];					//  Declaration ---> Array.
@@ -185,22 +198,22 @@ public class ListExercise {
 		}
 		return num;
 	}
-// 	public static void main(String[] args) {
-// 		List <Object> ls = new ArrayList<>();
-// 		ls.add(2);
-// 		ls.add(5);
-// 		ls.add(6);
-// 		ls.add("s");
-// 		System.out.println(ls);
-// 		var la = new ArrayList<Integer>();
-// 		la.add(2);
-// 		la.add(4);
-// 		List <String> word = new ArrayList<>();
-// 		word.add("acsd");
-// 		System.out.println(count0ccurrencesOfC(word,'b'));
-// 		//System.out.println(common(ls,la));
+	public static void main(String[] args) {
+		List <Object> ls = new ArrayList<>();
+		ls.add(2);
+		ls.add(5);
+		ls.add(6);
+		ls.add("s");
+		System.out.println(ls);
+		var la = new ArrayList<Integer>();
+		la.add(2);
+		la.add(4);
+		List <String> word = new ArrayList<>();
+		word.add("acsd");
+		System.out.println(count0ccurrencesOfC(word,'b'));
+		//System.out.println(common(ls,la));
 		
-// 	}	
+	}	
 }
 
 //	MapExercises
@@ -243,6 +256,7 @@ public class ListExercise {
 		// var la = new ArrayList<Integer>();
 		// 	la.add(2);
 		// 	la.add(4);
+		starTriangle();
 		List<Integer> Map_nums = List.of(1,2,3,4,5);
 		List<String> Map_chars = List.of("fuck", "fuck", "what");
 		System.out.println(squares(Map_nums));
